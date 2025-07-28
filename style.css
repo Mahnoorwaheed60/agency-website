@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+/* font-family: "Poppins", sans-serif; */
+/* font-family: "Titillium Web", sans-serif; */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  border: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.header2 {
+
+  width: 100%;
+  padding: 20px 20px;
+  margin: auto;
+  background-color: #fff;
+  color: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  /* opacity: 0; */
+  box-shadow: -1px -2px 12px 4px rgba(0, 0, 0, 0.3);
+
+
+}
+
+
+
+header,
+.header2 {
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.hidden-header {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.header2.hidden-header {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-2 img {
+  width: 170px;
+}
+
+.header3 {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin: auto;
+  background-color: #fff;
+  color: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  /* opacity: 0; */
+  box-shadow: -1px -2px 12px 4px rgba(0, 0, 0, 0.3);
+  display: none;
+
+}
+
+.logo img {
+  width: 185px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav ul li {
+  padding: 15px 5px;
+
+}
+
+nav ul li a {
+  font-size: 16px;
+  font-family: " poppins", sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 0 8px;
+  color: #fff;
+
+}
+
+.right-icon i {
+  font-weight: bolder;
+  color: #fff;
+}
+
+.header2 .right-icon i {
+  font-weight: bolder;
+  color: #111;
+}
+
+.right-contact-info span {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 2px;
+  color: #fff;
+  font-family: " poppins", sans-serif;
+
+}
+
+.right-contact-info i {
+  color: #fff;
+}
+
+.header2 .right-contact-info span {
+
+  color: #111;
+
+
+}
+
+.header2 .right-contact-info i {
+  color: #111;
+}
+
+.right-button a {
+  padding: 8px 28px;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Titillium Web", Sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  border: 1px solid #FF87FA;
+  background-image: linear-gradient(192deg, #ff87fa 17%, #af3cff 100%);
+}
+
+.right-button a:hover {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #FF87FA;
+
+
+}
+
+.header2 nav ul li a {
+  color: #111;
+}
+
+.toggle-btn {
+  position: fixed;
+  display: none;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+
+
+}
+
+.toggle-btn i {
+  font-size: 23px;
+  color: #000037;
+}
+
+/* Overlay */
+#overlay-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+#overlay-nav.active {
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+
+
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  margin: 20px 0;
+  font-family: "Poppins", sans-serif;
+  ;
+}
+
+.sidebar a:hover {
+  color: #FF87FA;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+  background: none;
+  border: none;
+
+
+}
+
+/* Dropdown Styles */
+.dropdown {
+  margin-top: 10px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: black;
+  padding: 0;
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-menu {
+  margin-left: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu a {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.hero-content {
+  width: 768px;
+  position: relative;
+  z-index: 1;
+  padding: 20px 1vw;
+  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  line-height: 75px;
+}
+
+.hero-content p {
+  font-size: 27px;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  line-height: 40px;
+  margin-bottom: 60px;
+}
+
+.hero-content a {
+  padding: 10px 32px;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Titillium Web", Sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  background-image: linear-gradient(192deg, #ff87fa 17%, #af3cff 100%);
+}
+
+.hero-content a:hover {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #FF87FA;
+}
+
+
+.service-section {
+  width: 100%;
+  padding: 20px 1vw;
+  height: 100vh;
+  margin: auto;
+
+}
+
+.service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: #FDFBFF;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  padding: 30px 0
+}
+
+.heading img {
+  width: 23px;
+  height: 23px;
+}
+
+.heading h1 {
+  font-size: 32px;
+  letter-spacing: 0.9px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #000037;
+  padding: 0 8px;
+}
+
+.services {
+  max-width: 1100px;
+  display: flex;
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 37px 0 rgba(0, 0, 0, .4);
+  ;
+}
+
+.service-menu {
+  width: 35%;
+  padding: 35px 0 20px 30px;
+  box-shadow: 0 2px 37px 0 rgba(0, 0, 0, .4);
+  background-color: #000037;
+  ;
+  margin: -45px 0 20px -45px;
+
+}
+
+.service-menu ul li {
+  padding: 15px 12px;
+  justify-content: start;
+  margin: 5px -25px 0px 0px;
+}
+
+.service-menu ul li a {
+  color: #fff;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+
+}
+
+.service-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+.service-menu li.active {
+  background-color: transparent;
+  background-image: linear-gradient(192deg, #ff87fa 17%, #af3cff 100%);
+  border-style: none;
+}
+
+.service-content {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 15px;
+
+}
+
+.service-content h2 {
+  color: #000037;
+  font-size: 24px;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 29px;
+  padding: 5px 0;
+}
+
+.service-content p {
+  color: #72749f;
+  font-size: 18px;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.service-content h3 {
+  color: #72749f;
+  font-size: 18px;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 10px 0;
+}
+
+.service-content ul li h4 {
+  color: #72749f;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  padding: 10px 0;
+  font-family: "Titillium Web", sans-serif;
+  padding-right: 10px;
+
+}
+
+.service-content ul li h4 span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  margin-bottom: 3px;
+  height: 8px;
+  margin-right: 10px;
+  background-color: #000037;
+}
+
+.service-content ul li h4 span {
+  color: #72749f;
+  font-size: 18px;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.service-content a {
+  font-family: "Titillium Web";
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  background-image: linear-gradient(192deg, #ff87fa 17%, #af3cff 100%);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  align-self: flex-end;
+  margin-top: 20px;
+  border: 1px solid #FF87FA;
+}
+
+.service-content a:hover {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #FF87FA;
+
+}
+/* media query */
+
+@media screen and (max-width: 1114px) {
+
+  header,
+  .header2 {
+    display: none;
+  }
+
+  .header3 {
+    display: block;
+    padding: 20px 25px;
+
+  }
+
+  .logo-2 img {
+    width: 150px;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .hero-content {
+    padding: 10px 10px 0 10px;
+    margin-top: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 45px;
+    line-height: 60px;
+  }
+
+  .hero-content p {
+    font-size: 24px;
+    line-height: 35px;
+  }
+
+  .service-container {
+    padding: 20px 25px;
+  }
+
+  .services {
+    flex-direction: column;
+    padding: 0;
+    margin-top: 20px;
+
+  }
+
+  .service-menu {
+    margin: 0 0 0 0;
+    width: 100%;
+    padding-left: 0;
+
+
+  }
+
+  .service-menu ul li {
+    margin: 0;
+  }
+
+  .service-content {
+    width: 100%;
+  }
+
+  .heading h1 {
+    font-size: 30px;
+  }
+
+  .heading {
+    padding: 30px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logo-2 img {
+    width: 100px;
+  }
+
+  .hero-content {
+    padding: 10px 20px 0 20px;
+    margin-top: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 31px;
+    line-height: 50px;
+  }
+
+  .hero-content p {
+    font-size: 19px;
+    line-height: 35px;
+  }
+}
+
+@media (max-width: 382px) {
+  .heading h1 {
+    font-size: 24px;
+    padding: 0;
+  }
+
+  .heading {
+    padding: 30px 0 0 0;
+  }
+
+  .heading img {
+    width: 17px;
+    height: 17px;
+  }
+}
