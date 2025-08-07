@@ -28,50 +28,52 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', closeSidebar);
 });
 
+function head() {
 
+  const header = document.querySelector('header');
+  const header1 = document.querySelector('.header1');
+  const header2 = document.querySelector('.header2');
 
-const header = document.querySelector('header');
-const header1 = document.querySelector('.header1');
-const header2 = document.querySelector('.header2');
-
-// Hide default header and show header2
-function showheader2() {
-  header.classList.add('hidden-header');
-  header2.classList.remove('hidden-header');
-}
-
-// Show default header and hide header2
-function showheader() {
-  header.classList.remove('hidden-header');
-  header2.classList.add('hidden-header');
-}
-
-// Scroll behavior
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    showheader2();
-  } else {
-    showheader(); // revert back to original header at top
+  // Hide default header and show header2
+  function showheader2() {
+    header.classList.add('hidden-header');
+    header2.classList.remove('hidden-header');
   }
-});
 
-// Hover behavior - only active when scrollY <= 20
-header1.addEventListener('mouseover', () => {
-  if (window.scrollY <= 20) {
-    showheader2();
+  // Show default header and hide header2
+  function showheader() {
+    header.classList.remove('hidden-header');
+    header2.classList.add('hidden-header');
   }
-});
 
-header1.addEventListener('mouseout', () => {
-  if (window.scrollY <= 20) {
-    showheader();
-  }
-});
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      showheader2();
+    } else {
+      showheader(); // revert back to original header at top
+    }
+  });
 
+  // Hover behavior - only active when scrollY <= 20
+  header1.addEventListener('mouseover', () => {
+    if (window.scrollY <= 20) {
+      showheader2();
+    }
+  });
 
+  header1.addEventListener('mouseout', () => {
+    if (window.scrollY <= 20) {
+      showheader();
+    }
+  });
 
+};
+head();
 
- const services = {
+function service() {
+
+  const services = {
     ai: {
       title: "AI Development",
       description: `
@@ -183,7 +185,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     cv: {
+    cv: {
       title: "Computer Vision",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -211,7 +213,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     bda: {
+    bda: {
       title: "Big Data Analytics",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -239,7 +241,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     pm: {
+    pm: {
       title: "Predictive Modeling",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -267,7 +269,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     csd: {
+    csd: {
       title: "Custom Software Development",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -295,7 +297,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     dm: {
+    dm: {
       title: "Digital Marketing",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -323,7 +325,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-     nlp: {
+    nlp: {
       title: " Natural Language Processing ",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -351,7 +353,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-      do: {
+    do: {
       title: "  DevOps",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -379,7 +381,7 @@ header1.addEventListener('mouseout', () => {
              <a>Read More</a>
       `
     },
-      ux: {
+    ux: {
       title: " UI/UX ",
       description: `
         <p>We develop predictive models using deep learning frameworks to unlock the power of data.</p>
@@ -424,5 +426,139 @@ header1.addEventListener('mouseout', () => {
       serviceContent.innerHTML = `<h2>${service.title}</h2>${service.description}`;
     });
   });
+};
+service();
+
+function count() {
+  function count() {
+    // Get all statistic blocks
+    const stats = document.querySelectorAll('.stat');
+
+    // Function to animate counters
+    function animateCounters() {
+      stats.forEach((stat, index) => {
+        const count = stat.querySelector('h2');
+        const target = parseInt(count.textContent);
+        let current = 0;
+
+        const increment = target / 100;
+
+        function updateCount() {
+          current += increment;
+
+          // If it's the last stat (index === stats.length - 1)
+          if (index === stats.length - 1) {
+            count.textContent = current < 10 ? '0' + Math.floor(current) : Math.floor(current);
+          } else {
+            count.textContent = Math.floor(current) + '+';
+          }
+
+          if (current < target) {
+            requestAnimationFrame(updateCount);
+          } else {
+            // Set final value correctly
+            if (index === stats.length - 1) {
+              count.textContent = target < 10 ? '0' + target : target;
+            } else {
+              count.textContent = target + '+';
+            }
+          }
+        }
+
+        updateCount();
+      });
+    }
+
+    // Animate counters when they come into view
+    const observer = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        observer.unobserve(stats[0].parentNode);
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(stats[0].parentNode);
+  }
+
+  count();
+
+};
+count();
+
+function slider() {
+
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    // 🔽 Breakpoints added below
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+    }
+  });
 
 
+};
+slider();
+function testimonial(){
+   var swiper = new Swiper(".slidertwo", {
+      effect: 'coverflow',
+      grabcursor: true,
+      centerdSlides: true,
+
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      // 🔽 Breakpoints added below
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+      }
+    });
+
+};
+testimonial();
